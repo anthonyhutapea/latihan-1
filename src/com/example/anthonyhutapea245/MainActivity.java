@@ -2,6 +2,7 @@ package com.example.anthonyhutapea245;
 
 import android.os.Bundle;
 
+
 import android.app.Activity;
 import android.view.Menu;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -27,6 +29,7 @@ public class MainActivity extends Activity {
 	private String TAG = MainActivity.class.getSimpleName();
     private ProgressDialog pDialog;
     private ListView lv;
+    private Button btn;
 
     // URL to get contacts JSON
     //private static String url = "https://api.androidhive.info/contacts/";
@@ -41,27 +44,24 @@ public class MainActivity extends Activity {
        contactList = new ArrayList<HashMap<String, String>>();
     
        lv = (ListView) findViewById(R.id.list);
+       btn = (Button) findViewById(R.id.btn);
 
     new GetContacts().execute();
-    lv.setOnItemClickListener(new OnItemClickListener() {
-		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-				long arg3) {
+   // lv.setOnItemClickListener(new OnItemClickListener() {
+		//@Override
+		//public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				//long arg3) {
 			// TODO Auto-generated method stub
 			//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
-			HashMap<String, String> hm = contactList.get(arg2);
-			
-			Intent intent= new Intent(MainActivity.this, ContactDetail.class);
-			intent.putExtra("id",hm.get ("id"));
-			intent.putExtra("name",hm.get ("name"));
-			intent.putExtra("email",hm.get ("email"));
-			intent.putExtra("phone",hm.get ("phone"));
-			intent.putExtra("address",hm.get ("address"));
-			intent.putExtra("dob",hm.get ("dob"));
-			
-			
+			//HashMap<String, String> hm = contactList.get(arg2);
+    btn.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub;
+			//Toast.makeText(MainActivity.this, "Tested!", Toast.LENGTH_SHORT).show();
+			Intent intent =new Intent(MainActivity.this, TambahKontak.class);
 			startActivity(intent);
-		
+			
 		}
 	});
 }
@@ -186,4 +186,8 @@ private class GetContacts extends AsyncTask<Void, Void, Void> {
         return true;
     }
     
+    public void OnResume(){
+ 	   super.onResume();
+ 	   new GetContacts().execute();
+}
 }

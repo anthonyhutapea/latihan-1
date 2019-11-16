@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+       android:id="@+id/txtview"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:textSize="20sp"
+       android:text="FORM TAMBAH KONTAK BARU"
+       />
+    
+    <EditText 
+        android:id="@+id/etnama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:layout_below="@+id/txtview"
+        />
+    
+    <EditText 
+        android:id="@+id/etalamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alamat"
+        android:layout_below="@+id/etnama"
+        />
+    
+    <EditText 
+        android:id="@+id/etemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_below="@+id/etalamat"
+        />
+    
+    <EditText 
+        android:id="@+id/etphone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nomor Telepon"
+        android:layout_below="@+id/etemail"
+        />
+    
+    <EditText 
+        android:id="@+id/etdob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tanggal Lahir"
+        android:layout_below="@+id/etphone"
+        />
+    
+    <Button 
+        android:id="@+id/btnsimpan"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content" 
+   		android:text="Simpan" 
+   		android:layout_below="@+id/etdob"
+        />
+
+</LinearLayout>
